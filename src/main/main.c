@@ -5,6 +5,15 @@
 
 #include "mylib.h"
 
+int main(int argc, char* argv[]) {
+    char* name = "../text.txt";
+    char* str = readtext(name);
+
+    printf("%d\n", maxLen(str));
+
+    return 0;
+}
+
 /*int filesize( FILE *fp ) //Размер файла
 {
     int size_of_file;
@@ -165,12 +174,3 @@ int maxLenPar(char* str) {
 
     return maxLength;
 }*/
-
-int main(int argc, char* argv[]) {
-    char* name = "text.txt";
-    char* str = readtext(name);
-
-    printf("%d\n", maxLenPar(str));
-
-    return 0;
-}

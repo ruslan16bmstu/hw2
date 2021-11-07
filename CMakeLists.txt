@@ -5,15 +5,14 @@ SET(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -pthread")
 SET(CMAKE_C_FLAGS "-g -O0 -Wall -W -D_DEBUG -fprofile-arcs -ftest-coverage")
 SET(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage")
 
-add_library(standard STATIC ${PROJECT_SOURCE_DIR}/src/mylib.c ${PROJECT_SOURCE_DIR}/src/standard.c)
+include_directories(${PROJECT_SOURCE_DIR}/src/standard ${PROJECT_SOURCE_DIR}/src/parallel ${PROJECT_SOURCE_DIR}/src/main)
 
-add_library(parallel SHARED ${PROJECT_SOURCE_DIR}/src/mylib.c ${PROJECT_SOURCE_DIR}/src/parallel.c)
+add_library(standard STATIC ${PROJECT_SOURCE_DIR}/src/main/mylib.c ${PROJECT_SOURCE_DIR}/src/standard/standard.c)
 
-include_directories(src/standard src/parallel src/main)
+add_library(parallel SHARED ${PROJECT_SOURCE_DIR}/src/main/mylib.c ${PROJECT_SOURCE_DIR}/src/parallel/parallel.c)
 
-add_library(mylib STATIC mylib.c mylib.h)
+add_executable(Parallel ${PROJECT_SOURCE_DIR}/src/main/main.c)
+target_link_libraries(Parallel parallel)
 
-add_executable(main main.c)
-target_link_libraries(main mylib)
-
-include_directories(${GTEST_INCLUDE_DIRS})
+add_executable(Standard ${PROJECT_SOURCE_DIR}/src/main/main.c)
+target_link_libraries(Standard standard)

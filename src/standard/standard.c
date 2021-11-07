@@ -2,7 +2,7 @@
 
 int maxLen(char* str) {
     int size = strlen(str);
-    char* keys = " \n";
+    char* keys = " ,.!?\n\t";
     int maxLength = -1;
 
     int Length = 0;

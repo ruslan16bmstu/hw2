@@ -25,11 +25,11 @@ int* getBoarders(char* str, char* keys, int process_count) {
     return boarders;
 }
 
-int maxLenPar(char* str) {
+int maxLen(char* str) {
 
     int size = strlen(str);
 
-    char* keys = " \n";
+    char* keys = " ,.!?\n\t";
 
     int* boarders = getBoarders(str, keys, PRC_CNT);
 

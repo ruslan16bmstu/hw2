@@ -1,11 +1,11 @@
 #include "mylib.h"
 
-int filesize( FILE *fp ) {//Размер файла
-    int size_of_file;
-    fseek( fp, 0, SEEK_END );
-    size_of_file = ftell( fp );
-    fseek( fp, 0, SEEK_SET );
-    return( size_of_file );
+int filesize(FILE *file) {//Размер файла
+    int size;
+    fseek(file, 0, SEEK_END);
+    size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    return(size);
 }
 
 char* readtext(char* fname) {

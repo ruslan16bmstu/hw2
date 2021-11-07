@@ -13,4 +13,4 @@
 
 int* getBoarders(char* str, char* keys, int process_count);
 
-int maxLenPar(char* str);
+int maxLen(char* str);
