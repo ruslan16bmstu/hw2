@@ -3,7 +3,6 @@
 int* getBoarders(char* str, char* keys, int process_count) {
     
     int size = strlen(str);
-    printf("str: %s\n", str);
 
     int* boarders = mmap(NULL, (process_count + 1) * sizeof(int), PROT_READ | PROT_WRITE,
                                MAP_SHARED | MAP_ANONYMOUS, -1, 0);
@@ -89,9 +88,11 @@ int maxLen(char* str) {
     }
 
     if (munmap(pid, PRC_CNT)) {
-        printf("Failed to unmap\n");
+       printf("Failed to unmap\n");
         return -1;
     }
+
+    
 
     int maxLength = -1;
 

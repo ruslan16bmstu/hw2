@@ -1,6 +1,6 @@
 #include "standard.h"
 
-int maxLen(char* str) {
+int maxLenStandard(char* str) {
     int size = strlen(str);
     char* keys = " ,.!?\n\t";
     int maxLength = -1;

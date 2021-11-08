@@ -5,4 +5,4 @@
 #include <stdlib.h>
 #include "mylib.h"
 
-int maxLen(char* str);
+int maxLenStandard(char* str);

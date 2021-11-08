@@ -13,10 +13,10 @@ add_library(parallel SHARED ${PROJECT_SOURCE_DIR}/src/main/mylib.c ${PROJECT_SOU
 
 enable_testing()
 
-add_executable(Parallel ${PROJECT_SOURCE_DIR}/src/main/main.c)
+add_executable(Parallel ${PROJECT_SOURCE_DIR}/src/main/main_parallel.c)
 target_link_libraries(Parallel parallel)
 
-add_executable(Standard ${PROJECT_SOURCE_DIR}/src/main/main.c)
+add_executable(Standard ${PROJECT_SOURCE_DIR}/src/main/main_standard.c)
 target_link_libraries(Standard standard)
 
 find_package(GTest REQUIRED)
@@ -24,4 +24,4 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(mytests src/test/mytests.cpp)
 target_link_libraries(mytests ${GTEST_LIBRARIES})
-target_link_libraries(mytests parallel)
+target_link_libraries(mytests parallel standard)
