@@ -16,7 +16,7 @@ char* readtext(char* fname) {
     int counter = 0;
     int size = filesize(file);
 
-    char *text = mmap(NULL, size, PROT_READ | PROT_WRITE,
+    char *text = mmap(NULL, size + 1, PROT_READ | PROT_WRITE,
                                MAP_SHARED | MAP_ANONYMOUS, -1, 0);
     
     while( (c = fgetc(file)) != EOF ) {

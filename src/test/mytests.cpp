@@ -10,7 +10,9 @@ extern "C" {
 TEST(parallel1, test1) {
     char* name = "../text.txt";
     char* str = readtext(name);
-    EXPECT_EQ(maxLen(str), 7);
+    int len = maxLen(str);
+    printf("%d\n", len);
+    EXPECT_EQ(len, 7);
 }
 
 int main(int argc, char **argv) {
