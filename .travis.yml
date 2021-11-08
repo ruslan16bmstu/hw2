@@ -32,7 +32,7 @@ script:
   - make
   - valgrind ./mytests
   - cd ..
-  - cppcheck project --inconclusive --enable=all --language=c
+  - cppcheck src --inconclusive --enable=all --language=c
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
