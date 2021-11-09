@@ -1,0 +1,42 @@
+dist:     bionic
+
+language: c
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+env:
+    global:
+      - CODECOV_TOKEN='35b8b4a9-0a4e-4827-92f8-e00a1a82a0cb'
+
+install:
+  - sudo apt-get install valgrind
+  - sudo apt-get install cppcheck
+  - sudo apt-get install cmake
+  - sudo apt-get install libgtest-dev
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd -
+
+before_script:
+  - mkdir build
+  - cd build
+
+script:
+  - cmake ..
+  - make
+  - valgrind ./mytests
+  - ./stress
+  - cd ..
+  - cppcheck src/main/mylib.c --inconclusive --enable=all --language=c
+  - cppcheck src/parallel --inconclusive --enable=all --language=c
+  - cppcheck src/standard --inconclusive --enable=all --language=c
+  - cppcheck src/test --inconclusive --enable=all --language=c++
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
