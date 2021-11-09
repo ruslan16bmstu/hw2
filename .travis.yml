@@ -31,8 +31,12 @@ script:
   - cmake ..
   - make
   - valgrind ./mytests
+  - ./stress
   - cd ..
-  - cppcheck src --inconclusive --enable=all --language=c
+  - cppcheck src/main/mylib.c --inconclusive --enable=all --language=c
+  - cppcheck src/parallel --inconclusive --enable=all --language=c
+  - cppcheck src/standard --inconclusive --enable=all --language=c
+  - cppcheck src/test --inconclusive --enable=all --language=c++
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

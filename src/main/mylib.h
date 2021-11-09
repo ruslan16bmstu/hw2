@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-int filesize( FILE *fp );
+int filesize(FILE *file);
 
 char* readtext(char* fname);
 

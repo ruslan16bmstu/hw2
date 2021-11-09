@@ -25,3 +25,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 add_executable(mytests src/test/mytests.cpp)
 target_link_libraries(mytests ${GTEST_LIBRARIES})
 target_link_libraries(mytests parallel standard)
+
+add_executable(stress src/test/stress_test.cpp)
+target_link_libraries(stress ${GTEST_LIBRARIES})
+target_link_libraries(stress parallel standard)
