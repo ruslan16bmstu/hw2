@@ -8,7 +8,7 @@ extern "C" {
 }
 
 TEST(parallel_time, test1) {
-  char name[] = "../src/test/words.txt";
+  char name[] = "../src/test/big.txt";
   char *str = readtext(name);
   auto start = std::chrono::high_resolution_clock::now();
 
@@ -24,7 +24,7 @@ TEST(parallel_time, test1) {
 }
 
 TEST(standard_time, test1) {
-  char name[] = "../src/test/words.txt";
+  char name[] = "../src/test/big.txt";
   char *str = readtext(name);
   auto start = std::chrono::high_resolution_clock::now();
 
